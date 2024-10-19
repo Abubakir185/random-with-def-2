@@ -23,22 +23,28 @@ print(random_numbers)
 
 import random
 
-random_son = random.randint(1, 50)
-urinishlar_soni = 0
+def raqamni_top(start, stop, step):
+    random_son = random.randint(start, stop)
+    urinishlar_soni = 0
     
-while son != random_son:
-    son = int(input("son kiriting: "))
-     urinishlar_soni += 1
+    while True:
+        son = int(input(f"Son kiriting ({start} - {stop}, {step}ta urunishingiz bor) : "))
+        urinishlar_soni += 1
+        
+        if urinishlar_soni == step:
+            print("Yutqazdingiz!")
+            return urinishlar_soni
 
-    if son < random_son:
-        print("Kiritilgan son kichik.")
-    elif son > random_son:
-        print("Kiritilgan son katta.")
-    elif son == random_son:
-        print("Yutingiz!")
+        if son < random_son:
+            print("Kiritilgan son kichik.")
+        elif son > random_son:
+            print("Kiritilgan son katta.")
+        else:
+            print("Yutdingiz!")
+            return urinishlar_soni
 
-    
-    if urinishlar_soni == 5:
-        print("Urinishlar soni 5taga yetdi!")
-        break
+
+taxminlar_soni = raqamni_top(1, 100, 5)
+print(f"Taxminlar soni: {taxminlar_soni}")
+
         
