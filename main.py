@@ -23,28 +23,25 @@ print(random_numbers)
 
 import random
 
-def raqamni_top(start, stop, step):
-    random_son = random.randint(start, stop)
+def generate_game(start, stop, limit):
+    taxminiy_son = random.randint(start, stop)
     urinishlar_soni = 0
-    
-    while True:
-        son = int(input(f"Son kiriting ({start} - {stop}, {step}ta urunishingiz bor) : "))
-        urinishlar_soni += 1
-        
-        if urinishlar_soni == step:
-            print("Yutqazdingiz!")
-            return urinishlar_soni
 
-        if son < random_son:
-            print("Kiritilgan son kichik.")
-        elif son > random_son:
+    while True:
+        kiritinlgan_son = int(input(f"Son kriting ({start}-{stop}): "))
+        urinishlar_soni += 1
+
+        if kiritinlgan_son < taxminiy_son:
+            print("Kichik son kiritildi.")
+        elif kiritinlgan_son > taxminiy_son:
             print("Kiritilgan son katta.")
         else:
-            print("Yutdingiz!")
-            return urinishlar_soni
+            print("Yutdingiz")
+            break
+    
+    return urinishlar_soni <= limit 
+    
 
-
-taxminlar_soni = raqamni_top(1, 100, 5)
-print(f"Taxminlar soni: {taxminlar_soni}")
+print(generate_game(1, 50, 5))
 
         
